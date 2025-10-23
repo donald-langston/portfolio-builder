@@ -5,13 +5,11 @@ import dayjs from "dayjs";
 import React from "react";
 
 interface EducationPageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 }
 
 export default async function EducationsPage({ params }: EducationPageProps) {
-  const { id } = params;
+  const { id } = await params;
   const response: any = await getEducationsByUserId(id);
   if (!response.success) {
     return <div>Failed to fetch educations</div>;

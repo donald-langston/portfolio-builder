@@ -6,13 +6,11 @@ import Link from "next/link";
 import React from "react";
 
 interface ProjectsPageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 }
 
 export default async function ProjectsPage({ params }: ProjectsPageProps) {
-  const { id } = params;
+  const { id } = await params;
   const projectsResponse: any = await getProjectsByUserId(id);
   if (!projectsResponse.success) {
     return <div>Error: {projectsResponse.message}</div>;

@@ -5,13 +5,11 @@ import dayjs from "dayjs";
 import React from "react";
 
 interface ExperiencePageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 }
 
 export default async function ExperiencesPage({ params }: ExperiencePageProps) {
-  const { id } = params;
+  const { id } = await params;
   const response: any = await getExperiencesByUserId(id);
   if (!response.success) {
     return <div>Failed to fetch experiences</div>;

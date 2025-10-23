@@ -6,9 +6,7 @@ import { ISkill, IUser } from "@/interfaces";
 import React from "react";
 
 interface PortfolioHomepageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 }
 
 export default async function PortfolioHomepage({

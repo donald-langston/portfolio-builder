@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense} from 'react'
 
 export function PublicLayout({children}: {
     children: React.ReactNode;
@@ -7,7 +7,9 @@ export function PublicLayout({children}: {
 
     return (
         <div>
-          {children}  
+            <Suspense fallback={<></>}>
+                {children}
+            </Suspense>
         </div>
     )
 }

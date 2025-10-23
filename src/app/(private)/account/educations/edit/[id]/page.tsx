@@ -3,13 +3,11 @@ import EducationForm from '../../_components/education-form';
 import { getEducationById } from '@/actions/educations';
 
 interface IEditEducationProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 }
 
 export default async function EditEducationPage({ params }: IEditEducationProps) {
-    const { id } = params;
+    const { id } = await params;
       const educationResponse = await getEducationById(id);
       if (!educationResponse.success) {
         return <div>{educationResponse.message}</div>;

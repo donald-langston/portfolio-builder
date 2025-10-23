@@ -3,15 +3,13 @@ import React from "react";
 import ExperienceForm from "../../_components/experience-form";
 
 interface IEditExperienceProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 }
 
 export default async function EditExperiencePage({
   params,
 }: IEditExperienceProps) {
-  const { id } = params;
+  const { id } = await params;
   const experienceResponse = await getExperienceById(id);
   if (!experienceResponse.success) {
     return <div>{experienceResponse.message}</div>;

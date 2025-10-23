@@ -3,15 +3,13 @@ import ProjectForm from "../../_components/project-form";
 import { getProjectById } from "@/actions/projects";
 
 interface IEditProjectPageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 }
 
 export default async function EditProjectPage({
   params,
 }: IEditProjectPageProps) {
-  const { id } = params;
+  const { id } = await params;
   const projectResponse = await getProjectById(id);
 
   if (!projectResponse.success) {
