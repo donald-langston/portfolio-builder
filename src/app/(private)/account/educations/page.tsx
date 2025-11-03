@@ -17,7 +17,7 @@ export default async function EducationsPage() {
       );
     
       if (!educationsResponse.success) {
-        return <div>Failed to load projects</div>;
+        return <div>Failed to load education</div>;
       }
     
       const educations: any = educationsResponse.data;
@@ -25,9 +25,9 @@ export default async function EducationsPage() {
   return (
     <div>
       <div className="flex justify-between items-center">
-        <h1 className="text-xl font-bold">Educations</h1>
+        <h1 className="text-xl font-bold">Education</h1>
         <Button>
-          <Link href="/account/experiences/add">Add Education</Link>
+          <Link href="/account/educations/add">Add Education</Link>
         </Button>
       </div>
 
