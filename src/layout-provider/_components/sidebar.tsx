@@ -59,14 +59,14 @@ export function PrivateLayoutSidebar({
       icon: <ListCheck size={14} />,
     },
     {
-        title: "Configuration",
-        path: "/account/configurations",
-        icon: <Settings size={14} />
+      title: "Configuration",
+      path: "/account/configurations",
+      icon: <Settings size={14} />,
     },
     {
-        title: "Queries",
-        path: "/account/queries",
-        icon: <Mail size={14} />
+      title: "Queries",
+      path: "/account/queries",
+      icon: <Mail size={14} />,
     },
   ];
   return (
@@ -75,28 +75,28 @@ export function PrivateLayoutSidebar({
         <SheetHeader>
           <SheetTitle></SheetTitle>
         </SheetHeader>
-        <div className="flex flex-col gap-5 mt-10">
-          {menuItems.map((item) => (
-            <div
-              key={item.title}
-              className={`flex gap-4 items-center p-3 cursor-pointer
+          <div className="flex flex-col gap-2 lg:gap-5 mt-10 overflow-y-scroll lg:overflow-y-hidden">
+            {menuItems.map((item) => (
+              <div
+                key={item.title}
+                className={`flex gap-4 items-center p-3 cursor-pointer
                     ${
                       pathName === item.path
                         ? "bg-gray-100 border-gray-400 rounded border"
                         : ""
                     }`}
-              onClick={() => {
-                router.push(item.path);
-                onClose();
-              }}
-            >
-              {item.icon}
-              <span className="text-sm">{item.title}</span>
-            </div>
-          ))}
+                onClick={() => {
+                  router.push(item.path);
+                  onClose();
+                }}
+              >
+                {item.icon}
+                <span className="text-sm">{item.title}</span>
+              </div>
+            ))}
 
-          <SignOutButton />
-        </div>
+            <SignOutButton />
+          </div>
       </SheetContent>
     </Sheet>
   );
